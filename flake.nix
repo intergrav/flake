@@ -1,0 +1,58 @@
+{
+  description = "Darwin and NixOS system configurations";
+
+  inputs = {
+    agenix.url = "github:ryantm/agenix";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager-stable.url = "github:nix-community/home-manager/release-25.11";
+    mac-app-util.url = "github:hraban/mac-app-util";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = inputs: {
+    darwinConfigurations.coolbook = inputs.nix-darwin.lib.darwinSystem {
+      specialArgs = inputs;
+      modules = [
+        ./modules/common
+        ./modules/darwin
+        ./hosts/coolbook
+        inputs.home-manager.darwinModules.home-manager
+        inputs.mac-app-util.darwinModules.default
+        {
+          home-manager = {
+            sharedModules = [inputs.mac-app-util.homeManagerModules.default];
+          };
+        }
+      ];
+    };
+
+    nixosConfigurations.bluepill = inputs.nixpkgs-stable.lib.nixosSystem {
+      specialArgs = inputs;
+      modules = [
+        ./modules/common
+        ./modules/nixos
+        ./hosts/bluepill
+        inputs.agenix.nixosModules.default
+        inputs.home-manager-stable.nixosModules.home-manager
+        {
+          nixpkgs.overlays = [
+            (final: prev: {
+              tailscale = inputs.nixpkgs.legacyPackages.${prev.system}.tailscale;
+            })
+          ];
+        }
+      ];
+    };
+
+    formatter = {
+      aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.alejandra;
+      x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    };
+  };
+}
