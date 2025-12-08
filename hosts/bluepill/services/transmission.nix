@@ -23,5 +23,9 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "Z /var/lib/transmission 0770 transmission transmission -"
+  ];
+
   users.groups.transmission.members = ["devin"];
 }
