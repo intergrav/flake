@@ -54,9 +54,9 @@ in {
 
       git = {
         enable = true;
-        userName = "intergrav";
-        userEmail = "devin@devins.page";
-        extraConfig = {
+        settings = {
+          user.name = "intergrav";
+          user.email = "devin@devins.page";
           credential.helper = "!gh auth git-credential";
           pull.rebase = true;
           rebase.autoStash = true;
