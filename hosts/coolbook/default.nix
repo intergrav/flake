@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./services/tailscale.nix
-  ];
-
   networking.hostName = "coolbook";
 
   homebrew = {
@@ -31,6 +27,7 @@
       "rockboxutility"
       "signal"
       "steam"
+      "tailscale-app"
       "utm"
       "valhalla-freq-echo"
       "valhalla-space-modulator"
