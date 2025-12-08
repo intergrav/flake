@@ -16,6 +16,9 @@ in {
     // lib.optionalAttrs (!pkgs.stdenv.isDarwin) {
       isNormalUser = true;
       extraGroups = ["networkmanager" "wheel"];
+    }
+    // lib.optionalAttrs pkgs.stdenv.isDarwin {
+      uid = 501;
     };
 
   home-manager.users.devin = {pkgs, ...}: {
