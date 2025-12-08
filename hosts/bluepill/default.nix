@@ -26,10 +26,9 @@
 
   system.autoUpgrade = {
     enable = true;
+    runGarbageCollection = true;
     flake = "github:intergrav/flake";
-    flags = [
-      "-L" # print build logs
-    ];
+    flags = ["-L"];
     dates = "04:40";
   };
 
