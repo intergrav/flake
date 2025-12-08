@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./services/tailscale.nix
+  ];
+
   networking.hostName = "coolbook";
 
   homebrew = {
