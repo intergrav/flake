@@ -26,7 +26,6 @@
 
   system.autoUpgrade = {
     enable = true;
-    runGarbageCollection = true;
     flake = "github:intergrav/flake";
     flags = ["-L"];
     dates = "04:40";
