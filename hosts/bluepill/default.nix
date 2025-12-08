@@ -23,6 +23,16 @@
     imagemagick
     restic
   ];
+
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:intergrav/flake";
+    flags = [
+      "-L" # print build logs
+    ];
+    dates = "04:40";
+  };
+
   age.identityPaths = ["/etc/age.key"];
 
   users.groups.share-general.members = ["transmission" "devin"];
