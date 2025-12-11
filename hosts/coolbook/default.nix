@@ -23,7 +23,6 @@
       "omnidisksweeper"
       "onyx"
       "prismlauncher"
-      "qutebrowser"
       "rnnoise"
       "rockboxutility"
       "signal"
@@ -41,5 +40,6 @@
     xz
     rsync
     cinny-desktop
+    qutebrowser
   ];
 }
