@@ -37,6 +37,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    xz
+    rsync
     cinny-desktop
   ];
 }
