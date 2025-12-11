@@ -23,6 +23,7 @@
       "omnidisksweeper"
       "onyx"
       "prismlauncher"
+      "qutebrowser"
       "rnnoise"
       "rockboxutility"
       "signal"
