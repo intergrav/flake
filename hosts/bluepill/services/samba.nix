@@ -10,8 +10,8 @@
     };
   };
 
-  services.avahi.extraServiceFiles = [
-    (pkgs.writeText "device-info.service" ''
+  services.avahi.extraServiceFiles = {
+    "device-info.service" = pkgs.writeText "device-info.service" ''
       <?xml version="1.0" standalone='no'?>
       <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
       <service-group>
@@ -22,8 +22,8 @@
           <txt-record>model=RackMac</txt-record>
         </service>
       </service-group>
-    '')
-  ];
+    '';
+  };
 
   services.samba-wsdd = {
     enable = true;
