@@ -19,7 +19,7 @@
         <service>
           <type>_device-info._tcp</type>
           <port>0</port>
-          <txt-record>model=RackMac</txt-record>
+          <txt-record>model=TimeCapsule</txt-record>
         </service>
       </service-group>
     '';
@@ -38,7 +38,7 @@
         # https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
         "vfs objects" = "catia fruit streams_xattr"; # added catia
         "fruit:metadata" = "stream";
-        "fruit:model" = "RackMac";
+        "fruit:model" = "TimeCapsule";
         "fruit:veto_appledouble" = "no";
         "fruit:nfs_aces" = "no";
         "fruit:wipe_intentionally_left_blank_rfork" = "yes";
