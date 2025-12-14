@@ -12,7 +12,7 @@
   users.groups.mikusmp.gid = 2001;
   users.groups.mikusmp.members = ["devin"];
 
-  systemd.tmpfiles.rules = ["d /srv/mikusmp 2775 mikusmp mikusmp -"];
+  systemd.tmpfiles.rules = ["d /srv/mikusmp67 2775 mikusmp mikusmp -"];
 
   virtualisation = {
     docker.enable = true;
