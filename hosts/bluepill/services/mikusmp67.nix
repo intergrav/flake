@@ -43,7 +43,7 @@
             SIMULATION_DISTANCE = "4";
             SEED = "61";
             SYNC_CHUNK_WRITES = "false";
-            USE_AIKAR_FLAGS = "true";
+            USE_MEOWICE_FLAGS = "true";
             ALLOW_FLIGHT = "true";
             PACKWIZ_URL = "https://intergrav.github.io/private-modpacks/mikusmp67/pack.toml";
           };
