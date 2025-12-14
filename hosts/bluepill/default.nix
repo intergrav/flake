@@ -3,6 +3,7 @@
     ./hardware.nix
     ./services/homepage.nix
     ./services/jellyfin.nix
+    ./services/mikusmp67.nix
     ./services/navidrome.nix
     ./services/restic.nix
     ./services/samba.nix

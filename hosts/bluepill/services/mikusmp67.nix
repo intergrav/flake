@@ -1,7 +1,7 @@
 {...}: {
   networking.firewall = {
-    allowedTCPPorts = [25565];
-    allowedUDPPorts = [24454]; # for vc
+    allowedTCPPorts = [23343];
+    allowedUDPPorts = [22232]; # for vc
   };
 
   users.users.mikusmp.uid = 2001;
