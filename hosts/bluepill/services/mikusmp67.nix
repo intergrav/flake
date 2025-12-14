@@ -4,8 +4,11 @@
     allowedUDPPorts = [22232]; # for vc
   };
 
-  users.users.mikusmp.uid = 2001;
-  users.users.mikusmp.group = "mikusmp";
+  users.users.mikusmp = {
+    isSystemUser = true;
+    uid = 2001;
+    group = "mikusmp";
+  };
   users.groups.mikusmp.gid = 2001;
   users.groups.mikusmp.members = ["devin"];
 
