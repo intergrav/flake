@@ -6,7 +6,7 @@
 
   users.users.mikusmp.uid = 2001;
   users.groups.mikusmp.gid = 2001;
-  users.groups.mikusmp.members = ["devin"]
+  users.groups.mikusmp.members = ["devin"];
 
   systemd.tmpfiles.rules = ["d /srv/mikusmp 2775 mikusmp mikusmp -"];
 
