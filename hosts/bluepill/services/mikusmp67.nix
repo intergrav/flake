@@ -46,6 +46,8 @@
             USE_MEOWICE_FLAGS = "true";
             ALLOW_FLIGHT = "true";
             PACKWIZ_URL = "https://intergrav.github.io/private-modpacks/mikusmp67/pack.toml";
+            ENABLE_AUTOPAUSE = "true";
+            MAX_TICK_TIME = "-1";
           };
           autoStart = true;
         };
