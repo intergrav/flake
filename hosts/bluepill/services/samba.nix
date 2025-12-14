@@ -12,25 +12,8 @@
     nssmdns4 = true;
     publish = {
       enable = true;
-      workstation = true;
       userServices = true;
-      hinfo = true;
     };
-  };
-
-  services.avahi.extraServiceFiles = {
-    "device-info.service" = pkgs.writeText "device-info.service" ''
-      <?xml version="1.0" standalone='no'?>
-      <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-      <service-group>
-        <name replace-wildcards="yes">%h</name>
-        <service>
-          <type>_device-info._tcp</type>
-          <port>0</port>
-          <txt-record>model=TimeCapsule</txt-record>
-        </service>
-      </service-group>
-    '';
   };
 
   services.samba-wsdd = {
@@ -46,7 +29,6 @@
         # https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
         "vfs objects" = "catia fruit streams_xattr"; # added catia
         "fruit:metadata" = "stream";
-        "fruit:model" = "TimeCapsule";
         "fruit:veto_appledouble" = "no";
         "fruit:nfs_aces" = "no";
         "fruit:wipe_intentionally_left_blank_rfork" = "yes";
