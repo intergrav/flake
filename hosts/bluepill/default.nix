@@ -32,18 +32,4 @@
   };
 
   age.identityPaths = ["/etc/age.key"];
-
-  users.groups.share-general.members = ["transmission" "devin"];
-  system.activationScripts.generalShare.text = ''
-    mkdir -p /srv/general
-    chown -R root:share-general /srv/general
-    chmod -R 775 /srv/general
-  '';
-
-  users.groups.share-media.members = ["jellyfin" "navidrome" "slskd" "transmission" "devin"];
-  system.activationScripts.mediaShare.text = ''
-    mkdir -p /srv/media
-    chown -R root:share-media /srv/media
-    chmod -R 775 /srv/media
-  '';
 }

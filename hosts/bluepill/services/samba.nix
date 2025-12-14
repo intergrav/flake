@@ -1,4 +1,12 @@
 {pkgs, ...}: {
+  users.groups.share-general.members = ["transmission" "devin"];
+  users.groups.share-media.members = ["jellyfin" "navidrome" "slskd" "transmission" "devin"];
+
+  systemd.tmpfiles.rules = [
+    "d /srv/general 2775 root share-general -"
+    "d /srv/media 2775 root share-media -"
+  ];
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
