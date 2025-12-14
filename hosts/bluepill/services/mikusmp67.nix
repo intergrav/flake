@@ -30,6 +30,8 @@
             "/srv/mikusmp67:/data"
           ];
           environment = {
+            UID = "2001";
+            GID = "2001";
             EULA = "TRUE";
             TYPE = "FABRIC";
             VERSION = "1.20.1";
