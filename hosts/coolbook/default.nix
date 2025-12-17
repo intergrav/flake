@@ -17,6 +17,7 @@
       "keka"
       "meshlab"
       "mos"
+      "mpluginmanager"
       "musescore"
       "netnewswire"
       "obsidian"
