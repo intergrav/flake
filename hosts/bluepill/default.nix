@@ -5,6 +5,7 @@
     ./services/jellyfin.nix
     ./services/mikusmp67.nix
     ./services/navidrome.nix
+    ./services/newbeginnings7.nix
     ./services/restic.nix
     ./services/samba.nix
     ./services/slskd.nix
