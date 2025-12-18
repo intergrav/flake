@@ -19,7 +19,7 @@
     oci-containers = {
       backend = "docker";
       containers = {
-        newbeginnings = {
+        newbeginnings7 = {
           image = "itzg/minecraft-server:latest";
           user = "2002:2002";
           ports = [
@@ -34,7 +34,7 @@
             GID = "2002";
             EULA = "TRUE";
             TYPE = "FABRIC";
-            VERSION = "1.21.11";
+            VERSION = "1.21.10";
             MEMORY = "12G";
             DIFFICULTY = "hard";
             MOTD = "";
