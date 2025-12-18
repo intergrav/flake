@@ -19,7 +19,7 @@
     oci-containers = {
       backend = "docker";
       containers = {
-        mikusmp67 = {
+        newbeginnings = {
           image = "itzg/minecraft-server:latest";
           user = "2002:2002";
           ports = [
