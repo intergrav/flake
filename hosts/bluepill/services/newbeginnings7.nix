@@ -1,7 +1,10 @@
 {...}: {
   networking.firewall = {
     allowedTCPPorts = [25565];
-    allowedUDPPorts = [24454]; # for vc
+    allowedUDPPorts = [
+	24454 # for vc
+	19132 # for geyser
+    ];
   };
 
   users.users.newbeginnings = {
@@ -25,6 +28,7 @@
           ports = [
             "25565:25565"
             "24454:24454/udp" # for vc
+            "19132:19132/udp" # for geyser
           ];
           volumes = [
             "/srv/newbeginnings7:/data"
