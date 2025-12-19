@@ -4,10 +4,6 @@
     "net.ipv6.conf.all.forwarding" = 1;
   };
 
-  environment.systemPackages = with pkgs; [
-    nftables
-  ];
-
   networking.firewall = {
     allowedTCPPorts = [25565];
     allowedUDPPorts = [25565 24454 19132];
@@ -15,6 +11,8 @@
       nft add rule ip nat postrouting oif tailscale0 ip daddr 100.109.134.42 counter snat to 100.108.47.83
     '';
   };
+
+  networking.nftables.enable = true;
 
   networking.nat = {
     enable = true;
