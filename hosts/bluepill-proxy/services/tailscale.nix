@@ -4,5 +4,7 @@
     "net.ipv6.conf.all.forwarding" = 1;
   };
 
+  networking.interfaces.ens6.ethtool.gro = true;
+
   services.tailscale.enable = true;
 }
