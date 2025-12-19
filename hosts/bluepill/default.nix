@@ -21,7 +21,6 @@
   };
 
   networking.hostName = "bluepill";
-  networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
     age
