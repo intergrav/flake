@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  # Samba shares
+
   users.groups.share-general.members = ["transmission" "devin"];
   users.groups.share-media.members = ["jellyfin" "navidrome" "slskd" "transmission" "devin"];
 
@@ -63,5 +65,35 @@
         "writeable" = "yes";
       };
     };
+  };
+
+  # NFS shares (testing)
+
+  networking.firewall.interfaces.tailscale0 = {
+    allowedTCPPorts = [111 2049 4000 4001 4002 20048];
+    allowedUDPPorts = [111 2049 4000 4001 4002 20048];
+  };
+
+  fileSystems."/export/general" = {
+    device = "/srv/general";
+    options = ["bind"];
+  };
+
+  fileSystems."/export/media" = {
+    device = "/srv/media";
+    options = ["bind"];
+  };
+
+  services.nfs.server = {
+    enable = true;
+    lockdPort = 4001;
+    mountdPort = 4002;
+    statdPort = 4000;
+    extraNfsdConfig = '''';
+    services.nfs.server.exports = ''
+      /export          *(rw,fsid=0,no_subtree_check)
+      /export/general  *(rw,nohide,insecure,no_subtree_check)
+      /export/media    *(rw,nohide,insecure,no_subtree_check)
+    '';
   };
 }
