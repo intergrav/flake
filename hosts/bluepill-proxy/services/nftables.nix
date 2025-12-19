@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
@@ -12,7 +12,7 @@
 
   networking.nat = {
     enable = true;
-    externalInterface = "ens6";
+    externalInterface = "tailscale0";
     externalIP = "100.108.47.83";
     forwardPorts = [
       {
