@@ -4,7 +4,15 @@
     "net.ipv6.conf.all.forwarding" = 1;
   };
 
-  networking.interfaces.ens6.ethtool.gro = true;
+  systemd.services.enable-gro = {
+    description = "enable gro on ens6";
+    after = ["network.target"];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/sbin/ethtool -K ens6 gro on";
+    };
+    wantedBy = ["multi-user.target"];
+  };
 
   services.tailscale.enable = true;
 }
