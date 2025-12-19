@@ -5,18 +5,15 @@
   };
 
   networking.firewall = {
-    allowedTCPPorts = [25565];
+    enable = true;
+    allowedTCPPorts = [22 25565];
     allowedUDPPorts = [25565 24454 19132];
-    extraCommands = ''
-      nft add rule ip nat postrouting oif tailscale0 ip daddr 100.109.134.42 counter snat to 100.108.47.83
-    '';
   };
-
-  networking.nftables.enable = true;
 
   networking.nat = {
     enable = true;
     externalInterface = "ens6";
+    externalIP = "100.108.47.83";
     forwardPorts = [
       {
         sourcePort = 25565;
