@@ -26,9 +26,9 @@
           image = "itzg/minecraft-server:latest";
           user = "2002:2002";
           ports = [
-            "0.0.0.0:25565:25565"
-            "0.0.0.0:24454:24454/udp" # for vc
-            "0.0.0.0:19132:19132/udp" # for geyser
+            "25565:25565"
+            "24454:24454/udp" # for vc
+            "19132:19132/udp" # for geyser
           ];
           volumes = [
             "/srv/newbeginnings7:/data"
