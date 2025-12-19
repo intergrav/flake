@@ -1,8 +1,6 @@
 {...}: {
   imports = [
     ./hardware.nix
-    ./services/caddy.nix
-    ./services/nftables.nix
     ./services/ssh.nix
     ./services/tailscale.nix
   ];
