@@ -50,24 +50,6 @@
       ];
     };
 
-    nixosConfigurations.bluepill-proxy = inputs.nixpkgs-stable.lib.nixosSystem {
-      specialArgs = inputs;
-      modules = [
-        ./modules/common
-        ./modules/nixos
-        ./hosts/bluepill-proxy
-        inputs.agenix.nixosModules.default
-        inputs.home-manager-stable.nixosModules.home-manager
-        {
-          nixpkgs.overlays = [
-            (final: prev: {
-              tailscale = inputs.nixpkgs.legacyPackages.${prev.system}.tailscale;
-            })
-          ];
-        }
-      ];
-    };
-
     formatter = {
       aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.alejandra;
       x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
