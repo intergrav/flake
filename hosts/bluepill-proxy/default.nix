@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware.nix
+    ./services/caddy.nix
     ./services/ssh.nix
     ./services/tailscale.nix
   ];
