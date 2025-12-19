@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware.nix
+    ./services/fwupd.nix
     ./services/homepage.nix
     ./services/jellyfin.nix
     ./services/mikusmp67.nix
