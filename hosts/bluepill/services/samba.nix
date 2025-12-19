@@ -90,7 +90,7 @@
     mountdPort = 4002;
     statdPort = 4000;
     extraNfsdConfig = '''';
-    services.nfs.server.exports = ''
+    exports = ''
       /export          *(rw,fsid=0,no_subtree_check)
       /export/general  *(rw,nohide,insecure,no_subtree_check)
       /export/media    *(rw,nohide,insecure,no_subtree_check)
