@@ -3,19 +3,27 @@
 
   services.caddy = {
     enable = true;
-    caddyfile = ''
-      navidrome.devins.page {
-        reverse_proxy http://100.108.47.83:4533
-        encode gzip
-      }
-      jellyfin.devins.page {
-        reverse_proxy http://100.108.47.83:8096
-        encode gzip
-      }
-      slskd.devins.page {
-        reverse_proxy http://100.108.47.83:5030
-        encode gzip
-      }
-    '';
+    virtualHosts = {
+      "navidrome.devins.page" = {
+        extraConfig = ''
+          encode gzip
+          reverse_proxy http://100.64.12.34:4533
+        '';
+      };
+
+      "jellyfin.devins.page" = {
+        extraConfig = ''
+          encode gzip
+          reverse_proxy http://100.64.12.34:8096
+        '';
+      };
+
+      "slskd.devins.page" = {
+        extraConfig = ''
+          encode gzip
+          reverse_proxy http://100.64.12.34:5030
+        '';
+      };
+    };
   };
 }
