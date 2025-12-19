@@ -7,6 +7,7 @@
 
   networking.hostName = "bluepill-proxy";
   networking.domain = "";
+  networking.networkmanager.enable = true;
 
   documentation = {
     enable = false;

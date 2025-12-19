@@ -14,7 +14,14 @@
     ./services/transmission.nix
   ];
 
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
+
   networking.hostName = "bluepill";
+  networking.networkmanager.enable = true;
+
   environment.systemPackages = with pkgs; [
     age
     beets
