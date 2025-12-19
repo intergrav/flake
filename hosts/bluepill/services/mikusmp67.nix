@@ -23,8 +23,8 @@
           image = "itzg/minecraft-server:latest";
           user = "2001:2001";
           ports = [
-            "23343:25565"
-            "22232:22232/udp" # for vc
+            "0.0.0.0:23343:25565"
+            "0.0.0.0:22232:22232/udp" # for vc
           ];
           volumes = [
             "/srv/mikusmp67:/data"

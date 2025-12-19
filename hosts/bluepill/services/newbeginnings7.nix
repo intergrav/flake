@@ -2,8 +2,8 @@
   networking.firewall = {
     allowedTCPPorts = [25565];
     allowedUDPPorts = [
-	24454 # for vc
-	19132 # for geyser
+      24454 # for vc
+      19132 # for geyser
     ];
   };
 
@@ -26,9 +26,9 @@
           image = "itzg/minecraft-server:latest";
           user = "2002:2002";
           ports = [
-            "25565:25565"
-            "24454:24454/udp" # for vc
-            "19132:19132/udp" # for geyser
+            "0.0.0.0:25565:25565"
+            "0.0.0.0:24454:24454/udp" # for vc
+            "0.0.0.0:19132:19132/udp" # for geyser
           ];
           volumes = [
             "/srv/newbeginnings7:/data"
