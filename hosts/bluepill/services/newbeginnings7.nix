@@ -45,7 +45,7 @@
             ENABLE_COMMAND_BLOCK = "true";
             VIEW_DISTANCE = "10";
             SIMULATION_DISTANCE = "5";
-            SEED = "61";
+            SEED = "-8024242352340898148";
             SYNC_CHUNK_WRITES = "false";
             USE_MEOWICE_FLAGS = "true";
             ALLOW_FLIGHT = "true";
