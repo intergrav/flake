@@ -1,5 +1,5 @@
 {...}: {
-  networking.firewall.allowedTCPPorts = [22 80 443];
+  networking.firewall.allowedTCPPorts = [80 443];
 
   services.caddy = {
     enable = true;
