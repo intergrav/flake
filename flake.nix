@@ -43,7 +43,7 @@
         {
           nixpkgs.overlays = [
             (final: prev: {
-              tailscale = inputs.nixpkgs.legacyPackages.${prev.system}.tailscale;
+              tailscale = inputs.nixpkgs.legacyPackages.${prev.stdenv.hostPlatform.system}.tailscale;
             })
           ];
         }
