@@ -40,7 +40,7 @@
             TYPE = "FABRIC";
             VERSION = "1.21.10";
             MEMORY = "12G";
-            DIFFICULTY = "hard";
+            DIFFICULTY = "normal";
             MOTD = "";
             ENABLE_COMMAND_BLOCK = "true";
             VIEW_DISTANCE = "10";
