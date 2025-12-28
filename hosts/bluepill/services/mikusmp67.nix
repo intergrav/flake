@@ -39,8 +39,8 @@
             DIFFICULTY = "hard";
             MOTD = "";
             ENABLE_COMMAND_BLOCK = "true";
-            VIEW_DISTANCE = "4";
-            SIMULATION_DISTANCE = "4";
+            VIEW_DISTANCE = "10";
+            SIMULATION_DISTANCE = "5";
             SEED = "61";
             SYNC_CHUNK_WRITES = "false";
             USE_MEOWICE_FLAGS = "true";
