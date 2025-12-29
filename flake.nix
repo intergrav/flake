@@ -50,6 +50,16 @@
       ];
     };
 
+    nixosConfigurations.devins-5495 = inputs.nixpkgs.lib.nixosSystem {
+      specialArgs = inputs;
+      modules = [
+        ./modules/common
+        ./modules/nixos
+        ./hosts/devins-5495
+        inputs.home-manager.nixosModules.home-manager
+      ];
+    };
+
     formatter = {
       aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.alejandra;
       x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
