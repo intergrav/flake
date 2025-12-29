@@ -1,13 +1,14 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware.nix
-      ./services/fwupd.nix
-      ./services/ssh.nix
-      ./services/tailscale.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware.nix
+    ./services/fwupd.nix
+    ./services/ssh.nix
+    ./services/tailscale.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
