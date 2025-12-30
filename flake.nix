@@ -7,6 +7,7 @@
     home-manager-stable.url = "github:nix-community/home-manager/release-25.11";
     mac-app-util.url = "github:hraban/mac-app-util";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
@@ -50,13 +51,14 @@
       ];
     };
 
-    nixosConfigurations.devins-5495 = inputs.nixpkgs.lib.nixosSystem {
+    nixosConfigurations.tank-wsl = inputs.nixpkgs.lib.nixosSystem {
       specialArgs = inputs;
       modules = [
         ./modules/common
         ./modules/nixos
-        ./hosts/devins-5495
+        ./hosts/tank-wsl
         inputs.home-manager.nixosModules.home-manager
+        inputs.nixos-wsl.nixosModules.default
       ];
     };
 
