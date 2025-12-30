@@ -33,6 +33,16 @@
       ];
     };
 
+    nixosConfigurations.trinity = inputs.nixpkgs.lib.nixosSystem {
+      specialArgs = inputs;
+      modules = [
+        ./modules/common
+        ./modules/nixos
+        ./hosts/trinity
+        inputs.home-manager.nixosModules.home-manager
+      ];
+    };
+
     nixosConfigurations.bluepill = inputs.nixpkgs-stable.lib.nixosSystem {
       specialArgs = inputs;
       modules = [
