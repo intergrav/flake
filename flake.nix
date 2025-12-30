@@ -16,12 +16,12 @@
   };
 
   outputs = inputs: {
-    darwinConfigurations.coolbook = inputs.nix-darwin.lib.darwinSystem {
+    darwinConfigurations.cypher = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = inputs;
       modules = [
         ./modules/common
         ./modules/darwin
-        ./hosts/coolbook
+        ./hosts/cypher
         inputs.home-manager.darwinModules.home-manager
         inputs.mac-app-util.darwinModules.default
         {

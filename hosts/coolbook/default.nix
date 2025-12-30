@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  networking.hostName = "coolbook";
+  networking.hostName = "cypher";
 
   homebrew = {
     taps = ["mhaeuser/mhaeuser"];

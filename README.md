@@ -10,6 +10,6 @@ other hosts may be added in the future. this only includes machines in my flake,
 
 my home server hosting things like navidrome, jellyfin, backups, etc. runs on my old pc.
 
-### coolbook
+### cypher
 
 my macbook, my main computer. i mostly use homebrew for gui applications if possible, and use nix for cli.
