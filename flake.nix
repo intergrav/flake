@@ -16,12 +16,12 @@
   };
 
   outputs = inputs: {
-    darwinConfigurations.cypher = inputs.nix-darwin.lib.darwinSystem {
+    darwinConfigurations.neo = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = inputs;
       modules = [
         ./modules/common
         ./modules/darwin
-        ./hosts/cypher
+        ./hosts/neo
         inputs.home-manager.darwinModules.home-manager
         inputs.mac-app-util.darwinModules.default
         {
