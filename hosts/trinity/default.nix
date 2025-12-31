@@ -31,7 +31,6 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.paperwm
     gnomeExtensions.user-themes
-    gnomeExtensions.rounded-window-corners-reborn
 
     vscode-with-extensions
   ];
