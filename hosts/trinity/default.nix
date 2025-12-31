@@ -33,15 +33,7 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.paperwm
     gnomeExtensions.user-themes
-
-    steam # flatpak has issues, using nixpkg
   ];
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
 
   system.stateVersion = "25.11";
 }
