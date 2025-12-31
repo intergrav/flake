@@ -16,8 +16,11 @@
     gnome-software
     refine
     adw-gtk3
+    gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnomeExtensions.paperwm
+    gnomeExtensions.rounded-corners
+    gnomeExtensions.rounded-window-corners-reborn
     gnomeExtensions.user-themes
 
     vscode-fhs
