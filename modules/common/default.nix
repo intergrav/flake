@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [../users/devin.nix];
 
   nix = {
@@ -13,4 +13,5 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.fish.enable = true;
+  environment.shells = [ pkgs.fish ];
 }
