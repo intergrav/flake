@@ -1,15 +1,15 @@
 {pkgs, ...}: {
   imports = [
     ./hardware.nix
-    ./services/homepage.nix
-    ./services/jellyfin.nix
-    ./services/mikusmp67.nix
-    ./services/navidrome.nix
-    ./services/newbeginnings7.nix
-    ./services/restic.nix
-    ./services/samba.nix
-    ./services/slskd.nix
-    ./services/transmission.nix
+    ../../modules/nixos/services/homepage.nix
+    ../../modules/nixos/services/jellyfin.nix
+    ../../modules/nixos/services/mikusmp67.nix
+    ../../modules/nixos/services/navidrome.nix
+    ../../modules/nixos/services/newbeginnings7.nix
+    ../../modules/nixos/services/restic.nix
+    ../../modules/nixos/services/samba.nix
+    ../../modules/nixos/services/slskd.nix
+    ../../modules/nixos/services/transmission.nix
   ];
 
   networking.hostName = "bluepill";

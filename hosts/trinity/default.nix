@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware.nix
-    ./services/power.nix
+    ../../modules/nixos/services/tlp.nix
   ];
 
   networking.hostName = "trinity";
