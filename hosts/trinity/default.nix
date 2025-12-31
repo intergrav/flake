@@ -32,7 +32,7 @@
     gnomeExtensions.paperwm
     gnomeExtensions.user-themes
 
-    vscode-with-extensions
+    vscode-fhs
   ];
 
   system.stateVersion = "25.11";

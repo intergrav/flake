@@ -10,6 +10,7 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-tlp-pr.url = "github:NixOS/nixpkgs/pull/473626/head";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
@@ -33,7 +34,7 @@
       ];
     };
 
-    nixosConfigurations.trinity = inputs.nixpkgs.lib.nixosSystem {
+    nixosConfigurations.trinity = inputs.nixpkgs-tlp-pr.lib.nixosSystem {
       specialArgs = inputs;
       modules = [
         ./modules/common
