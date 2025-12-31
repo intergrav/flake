@@ -1,81 +1,92 @@
 {
-  description = "Darwin and NixOS system configurations";
-
   inputs = {
-    agenix.url = "github:ryantm/agenix";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager-stable.url = "github:nix-community/home-manager/release-25.11";
-    mac-app-util.url = "github:hraban/mac-app-util";
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-tlp-pr.url = "github:NixOS/nixpkgs/pull/473626/head";
-
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager-stable = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    mac-app-util.url = "github:hraban/mac-app-util";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    agenix.url = "github:ryantm/agenix";
   };
 
-  outputs = inputs: {
-    darwinConfigurations.neo = inputs.nix-darwin.lib.darwinSystem {
-      specialArgs = inputs;
-      modules = [
-        ./modules/common
-        ./modules/darwin
-        ./hosts/neo
-        inputs.home-manager.darwinModules.home-manager
-        inputs.mac-app-util.darwinModules.default
-        {
-          home-manager = {
-            sharedModules = [inputs.mac-app-util.homeManagerModules.default];
-          };
-        }
-      ];
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    nixpkgs-tlp-pr,
+    nix-darwin,
+    home-manager,
+    home-manager-stable,
+    mac-app-util,
+    nixos-wsl,
+    agenix,
+  }: let
+    commonModules = [./modules/common];
+  in {
+    darwinConfigurations.neo = nix-darwin.lib.darwinSystem {
+      modules =
+        commonModules
+        ++ [
+          ./modules/darwin
+          ./hosts/neo
+          home-manager.darwinModules.home-manager
+          mac-app-util.darwinModules.default
+          {home-manager.sharedModules = [mac-app-util.homeManagerModules.default];}
+        ];
     };
 
-    nixosConfigurations.trinity = inputs.nixpkgs-tlp-pr.lib.nixosSystem {
-      specialArgs = inputs;
-      modules = [
-        ./modules/common
-        ./modules/nixos
-        ./hosts/trinity
-        inputs.home-manager.nixosModules.home-manager
-      ];
-    };
-
-    nixosConfigurations.bluepill = inputs.nixpkgs-stable.lib.nixosSystem {
-      specialArgs = inputs;
-      modules = [
-        ./modules/common
-        ./modules/nixos
-        ./hosts/bluepill
-        inputs.agenix.nixosModules.default
-        inputs.home-manager-stable.nixosModules.home-manager
-        {
-          nixpkgs.overlays = [
-            (final: prev: {
-              tailscale = inputs.nixpkgs.legacyPackages.${prev.stdenv.hostPlatform.system}.tailscale;
-            })
+    nixosConfigurations = {
+      trinity = nixpkgs-tlp-pr.lib.nixosSystem {
+        modules =
+          commonModules
+          ++ [
+            ./modules/nixos
+            ./hosts/trinity
+            home-manager.nixosModules.home-manager
           ];
-        }
-      ];
+      };
+
+      bluepill = nixpkgs-stable.lib.nixosSystem {
+        modules =
+          commonModules
+          ++ [
+            ./modules/nixos
+            ./hosts/bluepill
+            agenix.nixosModules.default
+            home-manager-stable.nixosModules.home-manager
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  tailscale = nixpkgs.legacyPackages.${prev.stdenv.hostPlatform.system}.tailscale;
+                })
+              ];
+            }
+          ];
+      };
+
+      tank-wsl = nixpkgs.lib.nixosSystem {
+        modules =
+          commonModules
+          ++ [
+            ./modules/nixos
+            ./hosts/tank-wsl
+            home-manager.nixosModules.home-manager
+            nixos-wsl.nixosModules.default
+          ];
+      };
     };
 
-    nixosConfigurations.tank-wsl = inputs.nixpkgs.lib.nixosSystem {
-      specialArgs = inputs;
-      modules = [
-        ./modules/common
-        ./modules/nixos
-        ./hosts/tank-wsl
-        inputs.home-manager.nixosModules.home-manager
-        inputs.nixos-wsl.nixosModules.default
-      ];
-    };
-
-    formatter = {
-      aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.alejandra;
-      x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    };
+    formatter = nixpkgs.lib.genAttrs ["aarch64-darwin" "x86_64-linux"] (system: nixpkgs.legacyPackages.${system}.alejandra);
   };
 }

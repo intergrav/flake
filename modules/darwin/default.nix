@@ -1,10 +1,5 @@
 {lib, ...}: {
-  system = {
-    stateVersion = 6;
-    configurationRevision = null;
-    primaryUser = "devin";
-  };
-
+  system.stateVersion = 6;
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-darwin";
 
   homebrew = {

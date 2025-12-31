@@ -1,10 +1,7 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
+  isDarwin = pkgs.stdenv.isDarwin;
   homeDir =
-    if pkgs.stdenv.isDarwin
+    if isDarwin
     then "/Users/devin"
     else "/home/devin";
 in {
@@ -13,13 +10,14 @@ in {
       home = homeDir;
       shell = pkgs.fish;
     }
-    // lib.optionalAttrs (!pkgs.stdenv.isDarwin) {
-      isNormalUser = true;
-      extraGroups = ["networkmanager" "wheel"];
-    }
-    // lib.optionalAttrs pkgs.stdenv.isDarwin {
-      uid = 501;
-    };
+    // (
+      if isDarwin
+      then {uid = 501;}
+      else {
+        isNormalUser = true;
+        extraGroups = ["networkmanager" "wheel"];
+      }
+    );
 
   home-manager.users.devin = {pkgs, ...}: {
     home = {
@@ -57,9 +55,9 @@ in {
 
       git = {
         enable = true;
-        settings = {
-          user.name = "intergrav";
-          user.email = "devin@devins.page";
+        userName = "intergrav";
+        userEmail = "devin@devins.page";
+        extraConfig = {
           credential.helper = "!gh auth git-credential";
           pull.rebase = true;
           rebase.autoStash = true;

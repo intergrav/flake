@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./hardware.nix
-    ./services/fwupd.nix
     ./services/homepage.nix
     ./services/jellyfin.nix
     ./services/mikusmp67.nix
@@ -10,15 +9,8 @@
     ./services/restic.nix
     ./services/samba.nix
     ./services/slskd.nix
-    ./services/ssh.nix
-    ./services/tailscale.nix
     ./services/transmission.nix
   ];
-
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
 
   networking.hostName = "bluepill";
 

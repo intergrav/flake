@@ -1,20 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware.nix
-    ./services/fwupd.nix
     ./services/power.nix
-    ./services/ssh.nix
-    ./services/tailscale.nix
   ];
-
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
 
   networking.hostName = "trinity";
   networking.networkmanager.enable = true;
