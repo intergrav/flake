@@ -19,8 +19,6 @@
   networking.hostName = "trinity";
   networking.networkmanager.enable = true;
 
-  powerManagement.enable = true;
-
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
@@ -33,6 +31,9 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.paperwm
     gnomeExtensions.user-themes
+    gnomeExtensions.rounded-window-corners-reborn
+
+    vscode-with-extensions
   ];
 
   system.stateVersion = "25.11";
