@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./hardware.nix
-    ./services/power.nix
     ./services/fwupd.nix
     ./services/ssh.nix
     ./services/tailscale.nix
