@@ -24,26 +24,18 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    steam
-    prismlauncher
-    chromium
-    (discord.override {
-      withOpenASAR = true;
-      withMoonlight = true;
-    })
-    rewaita
-    adw-gtk3
-    refine
-  ];
+  services.flatpak.enable = true;
 
-  programs.chromium = {
-    enable = true;
-    extensions = [
-      "clngdbkpkpeebahjckkjfobafhncgmne"
-      "ddkjiahejlhfcafbddmgiahcphecmpfh"
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    gnome-software
+    refine
+    adw-gtk3
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.paperwm
+    gnomeExtensions.user-themes
+
+    steam # flatpak has issues, using nixpkg
+  ];
 
   programs.steam = {
     enable = true;
