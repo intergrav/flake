@@ -236,7 +236,6 @@
       },
       "original": {
         "owner": "nix-darwin",
-        "ref": "master",
         "repo": "nix-darwin",
         "type": "github"
       }
@@ -256,7 +255,6 @@
       },
       "original": {
         "owner": "nix-community",
-        "ref": "main",
         "repo": "NixOS-WSL",
         "type": "github"
       }
