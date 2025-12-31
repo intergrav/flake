@@ -6,6 +6,7 @@
   imports = [
     ./hardware.nix
     ./services/fwupd.nix
+    ./services/power.nix
     ./services/ssh.nix
     ./services/tailscale.nix
   ];
