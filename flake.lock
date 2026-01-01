@@ -306,22 +306,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-tlp-pr": {
-      "locked": {
-        "lastModified": 1766510396,
-        "narHash": "sha256-FnHOqwilXWWx6x9QYGKqf4CnyaqGQoiNuz61oGdFPSA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "d007219fd78cafcfe04cc0538d4da7f317691e3e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "pull/473626/head",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1766736597,
@@ -427,8 +411,7 @@
         "nix-darwin": "nix-darwin",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_7",
-        "nixpkgs-stable": "nixpkgs-stable",
-        "nixpkgs-tlp-pr": "nixpkgs-tlp-pr"
+        "nixpkgs-stable": "nixpkgs-stable"
       }
     },
     "systems": {
