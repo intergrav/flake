@@ -2,7 +2,6 @@
   networking.hostName = "neo";
 
   homebrew = {
-    taps = ["mhaeuser/mhaeuser"];
     casks = [
       "affinity"
       "bambu-studio"
