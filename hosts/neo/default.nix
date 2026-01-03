@@ -29,7 +29,6 @@
       "signal"
       "steam"
       "tailscale-app"
-      "uninstallpkg"
       "utm"
       "valhalla-freq-echo"
       "valhalla-space-modulator"
