@@ -6,7 +6,6 @@
     casks = [
       "affinity"
       "bambu-studio"
-      "battery-toolkit"
       "discord"
       "font-sf-compact"
       "font-sf-mono"
