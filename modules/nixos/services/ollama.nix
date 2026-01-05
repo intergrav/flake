@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  networking.firewall.allowedTCPPorts = [443];
+  networking.firewall.allowedTCPPorts = [8443];
 
   services.ollama = {
     enable = true;
@@ -28,7 +28,7 @@
 
   services.caddy = {
     enable = true;
-    virtualHosts.":443".extraConfig = ''
+    virtualHosts.":8443".extraConfig = ''
       encode gzip zstd
       reverse_proxy 127.0.0.1:8080
     '';
