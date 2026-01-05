@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  networking.firewall.allowedTCPPorts = [443];
+
   services.ollama = {
     enable = true;
     loadModels = ["deepseek-r1:latest" "deepseek-v2:latest" "qwen3-coder:latest" "qwen3-vl:latest" "qwen3:latest" "gemma3:latest" "nemotron-3-nano:latest" "functiongemma:latest" "olmo-3:latest" "gtp-oss:latest" "llama3:latest" "devstral-small-2:latest" "mistral:latest" "mistral-nemo:latest"];
@@ -22,5 +24,13 @@
         autoStart = true;
       };
     };
+  };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts.":443".extraConfig = ''
+      encode gzip zstd
+      reverse_proxy 127.0.0.1:8080
+    '';
   };
 }
