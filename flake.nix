@@ -51,20 +51,13 @@
         ];
       };
 
-      bluepill = nixpkgs-stable.lib.nixosSystem {
+      bluepill = nixpkgs.lib.nixosSystem {
         modules = [
           ./modules/common
           ./modules/nixos
           ./hosts/bluepill
           agenix.nixosModules.default
-          home-manager-stable.nixosModules.home-manager
-          {
-            nixpkgs.overlays = [
-              (final: prev: {
-                tailscale = nixpkgs.legacyPackages.${prev.stdenv.hostPlatform.system}.tailscale;
-              })
-            ];
-          }
+          home-manager.nixosModules.home-manager
         ];
       };
 

@@ -13,5 +13,5 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.fish.enable = true;
-  environment.shells = [ pkgs.fish ];
+  environment.shells = [pkgs.fish];
 }
