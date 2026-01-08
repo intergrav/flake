@@ -6,11 +6,11 @@ up:
 sw:
     #!/usr/bin/env bash
     if [[ "$(uname -s)" == "Darwin" ]]; then
-        echo "detected darwin, running morlana..."
-        nix run github:ryanccn/morlana -- switch --flake .
+        echo "detected darwin, using nh darwin..."
+        nix run nixpkgs#nh darwin switch .
     elif [[ "$(uname -s)" == "Linux" ]]; then
-        echo "detected linux, running sudo nixos-rebuild..."
-        sudo nixos-rebuild switch --flake .
+        echo "detected linux, using nh os..."
+        nix run nixpkgs#nh os switch .
     else
         echo "unsupported os"
         exit 1
@@ -18,5 +18,4 @@ sw:
 
 # garbage collection/cleanup
 gc:
-    sudo nix-collect-garbage -d && sudo nix-store --optimise
-    nix-collect-garbage -d && nix-store --optimise
+    nix run nixpkgs#nh clean all

@@ -31,6 +31,7 @@ in {
         gh
         git
         just
+        nh
         nixd
         packwiz
         rsync
