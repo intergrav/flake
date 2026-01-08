@@ -15,6 +15,7 @@
       "inkscape"
       "keka"
       "meshlab"
+      "moonlight"
       "mpluginmanager"
       "musescore"
       "netnewswire"
