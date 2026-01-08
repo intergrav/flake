@@ -15,7 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mac-app-util.url = "github:hraban/mac-app-util";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
     agenix.url = "github:ryantm/agenix";
   };
 
@@ -58,16 +57,6 @@
           ./hosts/bluepill
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
-        ];
-      };
-
-      tank-wsl = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./modules/common
-          ./modules/nixos
-          ./hosts/tank-wsl
-          home-manager.nixosModules.home-manager
-          nixos-wsl.nixosModules.default
         ];
       };
     };
