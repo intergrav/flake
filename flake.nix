@@ -25,7 +25,6 @@
     home-manager,
     home-manager-stable,
     mac-app-util,
-    nixos-wsl,
     agenix,
     ...
   }: {
