@@ -9,7 +9,7 @@
       "font-sf-compact"
       "font-sf-mono"
       "font-sf-pro"
-      "ghostty@tip"
+      "ghostty"
       "helium-browser"
       "iina"
       "inkscape"
