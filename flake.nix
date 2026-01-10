@@ -28,15 +28,28 @@
     agenix,
     ...
   }: {
-    darwinConfigurations.neo = nix-darwin.lib.darwinSystem {
-      modules = [
-        ./modules/common
-        ./modules/darwin
-        ./hosts/neo
-        home-manager.darwinModules.home-manager
-        mac-app-util.darwinModules.default
-        {home-manager.sharedModules = [mac-app-util.homeManagerModules.default];}
-      ];
+    darwinConfigurations = {
+      neo = nix-darwin.lib.darwinSystem {
+        modules = [
+          ./modules/common
+          ./modules/darwin
+          ./hosts/neo
+          home-manager.darwinModules.home-manager
+          mac-app-util.darwinModules.default
+          {home-manager.sharedModules = [mac-app-util.homeManagerModules.default];}
+        ];
+      };
+
+      bluellama = nix-darwin.lib.darwinSystem {
+        modules = [
+          ./modules/common
+          ./modules/darwin
+          ./hosts/bluellama
+          home-manager.darwinModules.home-manager
+          mac-app-util.darwinModules.default
+          {home-manager.sharedModules = [mac-app-util.homeManagerModules.default];}
+        ];
+      };
     };
 
     nixosConfigurations = {
