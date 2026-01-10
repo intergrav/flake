@@ -43,6 +43,7 @@ in {
 				packwiz
 				rsync
 				starship
+				tree
 				xz
 			];
 		};
