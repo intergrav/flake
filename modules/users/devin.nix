@@ -57,7 +57,6 @@ in {
             "os"
             "localip"
             "disk"
-            "terminal"
             "media"
           ];
         };
