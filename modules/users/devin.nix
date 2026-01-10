@@ -32,6 +32,7 @@ in {
         gh
         git
         just
+        lazygit
         nh
         nixd
         packwiz
@@ -73,6 +74,16 @@ in {
           fastfetch
           set fish_greeting
         '';
+        plugins = [
+          {
+            name = "fzf-fish";
+            src = pkgs.fishPlugins.fzf-fish.src;
+          }
+          {
+            name = "grc";
+            src = pkgs.fishPlugins.grc.src;
+          }
+        ];
       };
 
       git = {
