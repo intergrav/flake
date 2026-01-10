@@ -28,6 +28,7 @@ in {
         alejandra
         bun
         coreutils
+        fastfetch
         gh
         git
         just
@@ -43,6 +44,25 @@ in {
     programs = {
       home-manager.enable = true;
 
+      fastfetch = {
+        enable = true;
+        settings = {
+          logo = {
+            type = "small";
+          };
+          modules = [
+            "title"
+            "uptime"
+            "host"
+            "os"
+            "localip"
+            "disk"
+            "terminal"
+            "media"
+          ];
+        };
+      };
+
       fish = {
         enable = true;
         interactiveShellInit = ''
@@ -51,6 +71,8 @@ in {
           end
           starship init fish | source
           fish_add_path /opt/homebrew/bin
+          fastfetch
+          set fish_greeting
         '';
       };
 
