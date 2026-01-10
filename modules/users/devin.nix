@@ -34,9 +34,11 @@ in {
         fzf
         gh
         git
+        grc
         just
         lazygit
         nh
+        nix-your-shell
         nixd
         packwiz
         rsync
@@ -71,6 +73,9 @@ in {
         interactiveShellInit = ''
           if test "$TERM" = "xterm-ghostty"
             set -x TERM xterm-256color
+          end
+          if command -q nix-your-shell
+            nix-your-shell fish | source
           end
           starship init fish | source
           fish_add_path /opt/homebrew/bin
