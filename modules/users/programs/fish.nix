@@ -9,6 +9,7 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
+      set TERM xterm-256color
       if command -q nix-your-shell
         nix-your-shell fish | source
       end
