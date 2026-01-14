@@ -20,7 +20,7 @@
     };
     backups = {
       "bluepill" = {
-        repository = "/mnt/backup/restic/bluepill";
+        repository = "/mnt/backup/restic";
         passwordFile = "/etc/secrets/restic";
         initialize = true;
         timerConfig = {
@@ -41,7 +41,7 @@
         pruneOpts = ["--keep-hourly 24" "--keep-daily 14" "--keep-weekly 4" "--keep-monthly 6" "--keep-yearly 2"];
       };
       "bluepill-offsite" = {
-        repository = "rclone:onedrive:/backup/restic/bluepill";
+        repository = "rclone:onedrive:/backup/restic";
         passwordFile = "/etc/secrets/restic";
         rcloneConfigFile = "/etc/secrets/rclone-onedrive.conf";
         initialize = true;
