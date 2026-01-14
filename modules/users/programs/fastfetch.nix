@@ -12,7 +12,6 @@
         "os"
         "localip"
         "disk"
-        "media"
       ];
     };
   };
