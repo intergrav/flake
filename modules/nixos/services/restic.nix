@@ -38,7 +38,7 @@
           "/var/lib/transmission"
         ];
         extraBackupArgs = ["--skip-if-unchanged" "--no-scan" "--one-file-system" "--exclude-caches" "--tag scheduled"];
-        pruneOpts = ["--keep-hourly 24" "--keep-daily 14" "--keep-weekly 4" "--keep-monthly 6"];
+        pruneOpts = ["--keep-last 4" "--keep-hourly 24" "--keep-daily 14" "--keep-weekly 4" "--keep-monthly 6"];
       };
       "bluepill-offsite" = {
         repository = "rclone:onedrive:/backup/restic";
@@ -60,7 +60,7 @@
           "/var/lib/transmission"
         ];
         extraBackupArgs = ["--skip-if-unchanged" "--no-scan" "--one-file-system" "--exclude-caches" "--tag scheduled"];
-        pruneOpts = ["--keep-hourly 24" "--keep-daily 14" "--keep-weekly 4" "--keep-monthly 6"];
+        pruneOpts = ["--keep-last 4" "--keep-hourly 24" "--keep-daily 14" "--keep-weekly 4" "--keep-monthly 6"];
       };
     };
   };
