@@ -9,6 +9,9 @@
     settings = {
       ports.dns = 53;
       upstreams.groups.default = [
+        "9.9.9.9"
+        "https://dns.quad9.net/dns-query"
+        "1.1.1.1"
         "https://one.one.one.one/dns-query"
       ];
       blocking = {
