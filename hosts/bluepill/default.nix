@@ -3,6 +3,7 @@
     ./hardware.nix
     ../../modules/nixos/services/blocky.nix
     ../../modules/nixos/services/homepage.nix
+    ../../modules/nixos/services/immich.nix
     ../../modules/nixos/services/jellyfin.nix
     ../../modules/nixos/services/mikusmp67.nix
     ../../modules/nixos/services/navidrome.nix
