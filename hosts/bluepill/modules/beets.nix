@@ -29,10 +29,10 @@ in {
       format: aac
       formats:
         aac:
-          command: ${ffmpegwithFdkAac}/bin/ffmpeg -i $source -y -vn -c:a libfdk_aac -vbr 5 -ar 44100 $dest
+          command: ffmpeg -i $source -y -vn -c:a libfdk_aac -vbr 5 -ar 44100 $dest
           extension: m4a
         flac:
-          command: ${ffmpegwithFdkAac}/bin/ffmpeg -i $source -ar 44100 -sample_fmt s16 -y $dest
+          command: ffmpeg -i $source -ar 44100 -sample_fmt s16 -y $dest
           extension: flac
     fetchart:
       cover_format: JPEG
