@@ -3,13 +3,11 @@
     file = ../../../secrets/restic.age;
     owner = "root";
     group = "root";
-    path = "/etc/secrets/restic";
   };
   age.secrets.rclone-onedrive = {
     file = ../../../secrets/rclone-onedrive.age;
     owner = "root";
     group = "root";
-    path = "/etc/secrets/rclone-onedrive.conf";
   };
 
   services.restic = {
@@ -21,7 +19,7 @@
     backups = {
       "bluepill" = {
         repository = "/mnt/backup/restic/devin";
-        passwordFile = "/etc/secrets/restic";
+        passwordFile = config.age.secrets.restic.path;
         initialize = true;
         timerConfig = {
           OnCalendar = "hourly";
@@ -42,8 +40,8 @@
       };
       "bluepill-offsite" = {
         repository = "rclone:onedrive:/backup/restic/devin";
-        passwordFile = "/etc/secrets/restic";
-        rcloneConfigFile = "/etc/secrets/rclone-onedrive.conf";
+        passwordFile = config.age.secrets.restic.path;
+        rcloneConfigFile = config.age.secrets.rclone-onedrive.path;
         initialize = true;
         timerConfig = {
           OnCalendar = "daily";

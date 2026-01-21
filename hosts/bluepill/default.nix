@@ -1,32 +1,21 @@
 {pkgs, ...}: {
   imports = [
     ./hardware.nix
-    ../../modules/nixos/services/blocky.nix
-    ../../modules/nixos/services/homepage.nix
-    ../../modules/nixos/services/immich.nix
-    ../../modules/nixos/services/jellyfin.nix
-    ../../modules/nixos/services/mikusmp67.nix
-    ../../modules/nixos/services/navidrome.nix
-    ../../modules/nixos/services/newbeginnings7.nix
-    ../../modules/nixos/services/restic.nix
-    ../../modules/nixos/services/samba.nix
-    ../../modules/nixos/services/slskd.nix
-    ../../modules/nixos/services/transmission.nix
+    ./modules/blocky.nix
+    ./modules/homepage.nix
+    ./modules/immich.nix
+    ./modules/jellyfin.nix
+    ./modules/mikusmp67.nix
+    ./modules/navidrome.nix
+    ./modules/newbeginnings7.nix
+    ./modules/restic.nix
+    ./modules/samba.nix
+    ./modules/slskd.nix
+    ./modules/transmission.nix
   ];
 
   networking.hostName = "bluepill";
   networking.useNetworkd = true;
-
-  environment.systemPackages = with pkgs; [
-    age
-    beets
-    (ffmpeg.override {
-      withFdkAac = true;
-      withUnfree = true;
-    })
-    imagemagick
-    restic
-  ];
 
   system.autoUpgrade = {
     enable = true;

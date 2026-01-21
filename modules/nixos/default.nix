@@ -1,8 +1,8 @@
 {lib, ...}: {
   imports = [
-    ./services/fwupd.nix
-    ./services/ssh.nix
-    ./services/tailscale.nix
+    ./modules/fwupd.nix
+    ./modules/ssh.nix
+    ./modules/tailscale.nix
   ];
 
   system.stateVersion = lib.mkDefault "24.11";

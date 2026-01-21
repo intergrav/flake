@@ -3,7 +3,6 @@
     file = ../../../secrets/transmission.age;
     owner = "transmission";
     group = "transmission";
-    path = "/etc/secrets/transmission.json";
   };
 
   services.transmission = {
@@ -11,7 +10,7 @@
     openRPCPort = true;
     openPeerPorts = true;
     package = pkgs.transmission_4;
-    credentialsFile = "/etc/secrets/transmission.json";
+    credentialsFile = config.age.secrets.transmission.path;
     settings = {
       incomplete-dir-enabled = false;
       umask = "000";
