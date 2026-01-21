@@ -10,9 +10,16 @@ in {
     imagemagick
   ];
 
-  environment.etc."beets/config.yaml".text = ''
+  environment.variables.BEETSDIR = "/srv/media/music/beets";
+
+  systemd.tmpfiles.rules = [
+    "d /srv/media/music/beets 2775 root share-media -"
+  ];
+
+  system.activationScripts.beetsConfig = ''
+    cat > /srv/media/music/beets/config.yaml <<'EOF'
     directory: /srv/media/music
-    library: /srv/media/music/musiclibrary.db
+    library: /srv/media/music/beets/musiclibrary.db
 
     original_date: yes
     import:
@@ -43,7 +50,6 @@ in {
       quality: 90
     replaygain:
       backend: ffmpeg
+    EOF
   '';
-
-  environment.variables.BEETSDIR = "/etc/beets";
 }
