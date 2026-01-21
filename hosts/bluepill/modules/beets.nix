@@ -17,6 +17,10 @@ in {
   ];
 
   system.activationScripts.beetsConfig = ''
+    mkdir -p /srv/media/music/beets
+    chown root:share-media /srv/media/music/beets
+    chmod 2775 /srv/media/music/beets
+
     cat > /srv/media/music/beets/config.yaml <<'EOF'
     directory: /srv/media/music
     library: /srv/media/music/beets/musiclibrary.db
