@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware.nix
+    ./modules/beets.nix
     ./modules/blocky.nix
     ./modules/homepage.nix
     ./modules/immich.nix
