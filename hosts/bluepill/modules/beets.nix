@@ -45,5 +45,5 @@ in {
       backend: ffmpeg
   '';
 
-  environment.variables.BEETS_CONFIG = "/etc/beets/config.yaml";
+  environment.variables.BEETSDIR = "/etc/beets";
 }
