@@ -22,11 +22,11 @@
     ...
   }: {
     darwinConfigurations = {
-      neo = nix-darwin.lib.darwinSystem {
+      d-macbook = nix-darwin.lib.darwinSystem {
         modules = [
           ./modules/common
           ./modules/darwin
-          ./hosts/neo
+          ./hosts/d-macbook
           home-manager.darwinModules.home-manager
           mac-app-util.darwinModules.default
           {home-manager.sharedModules = [mac-app-util.homeManagerModules.default];}

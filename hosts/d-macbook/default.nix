@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  networking.hostName = "neo";
+  networking.hostName = "d-macbook";
 
   homebrew = {
     casks = [
