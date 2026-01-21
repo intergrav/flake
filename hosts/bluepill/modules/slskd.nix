@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   networking.firewall.allowedTCPPorts = [5030];
 
   age.secrets.slskd = {

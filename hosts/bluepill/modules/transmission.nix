@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   age.secrets.transmission = {
     file = ../../../secrets/transmission.age;
     owner = "transmission";

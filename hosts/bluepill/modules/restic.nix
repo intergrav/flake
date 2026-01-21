@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   age.secrets.restic = {
     file = ../../../secrets/restic.age;
     owner = "root";
