@@ -1,10 +1,12 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  ffmpegwithFdkAac = pkgs.ffmpeg.override {
+    withFdkAac = true;
+    withUnfree = true;
+  };
+in {
   environment.systemPackages = with pkgs; [
     beets
-    (ffmpeg.override {
-      withFdkAac = true;
-      withUnfree = true;
-    })
+    ffmpegwithFdkAac
     imagemagick
   ];
 
@@ -27,7 +29,7 @@
       format: aac
       formats:
         aac:
-          command: /nix/store/09zrq0i5g69gwjan1b4j6np6xbhzp415-system-path/bin/ffmpeg -i $source -y -vn -c:a libfdk_aac -vbr 5 -ar 44100 $dest
+          command: ${ffmpegwithFdkAac}/bin/ffmpeg -i $source -y -vn -c:a libfdk_aac -vbr 5 -ar 44100 $dest
           extension: m4a
         flac:
           command: ffmpeg -i $source -ar 44100 -sample_fmt s16 -y $dest
@@ -42,4 +44,6 @@
     replaygain:
       backend: ffmpeg
   '';
+
+  environment.variables.BEETS_CONFIG = "/etc/beets/config.yaml";
 }
