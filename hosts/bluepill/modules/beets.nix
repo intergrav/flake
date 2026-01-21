@@ -12,7 +12,7 @@ in {
 
   environment.etc."beets/config.yaml".text = ''
     directory: /srv/media/music
-    library: /srv/beets/musiclibrary.db
+    library: /srv/media/music/musiclibrary.db
 
     original_date: yes
     import:
