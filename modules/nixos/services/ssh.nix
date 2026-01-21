@@ -2,7 +2,7 @@
   services = {
     openssh = {
       enable = true;
-      settings.PasswordAuthentication = false;
+      settings.PasswordAuthentication = true;
     };
     fail2ban.enable = true;
   };
