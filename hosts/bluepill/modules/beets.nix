@@ -30,9 +30,9 @@ in {
       from_scratch: yes
       languages: en
 
-    plugins: chroma musicbrainz duplicates scrub fetchart embedart lyrics convert mbsync replaygain info
+    plugins: chroma musicbrainz duplicates scrub fetchart embedart lyrics convert replaygain info mbsync
     lyrics:
-      sources: lrclib *
+      sources: [lrclib, *]
     convert:
       auto: yes
       dest: /srv/media/music
