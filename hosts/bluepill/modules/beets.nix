@@ -32,7 +32,7 @@ in {
 
     plugins: chroma musicbrainz duplicates scrub fetchart embedart lyrics convert replaygain info mbsync
     lyrics:
-      sources: [lrclib, *]
+      sources: lrclib *
     convert:
       auto: yes
       dest: /srv/media/music
