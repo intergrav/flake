@@ -1,7 +1,7 @@
 {...}: {
   networking.firewall = {
-    networking.firewall.allowedTCPPorts = [25565 23343];
-    networking.firewall.allowedUDPPorts = [25565 23343 24454 22232];
+    allowedTCPPorts = [25565 23343];
+    allowedUDPPorts = [25565 23343 24454 22232];
   };
 
   boot.kernel.sysctl = {
