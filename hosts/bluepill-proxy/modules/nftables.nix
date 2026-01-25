@@ -3,7 +3,10 @@
     networking.firewall.allowedTCPPorts = [25565 23343];
     networking.firewall.allowedUDPPorts = [25565 23343 24454 22232];
   };
-  networking.enableIPv4Forwarding = true;
+
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+  };
 
   networking.nftables = {
     enable = true;
