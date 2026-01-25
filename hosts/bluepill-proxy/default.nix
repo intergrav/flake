@@ -2,11 +2,12 @@
   imports = [
     ./hardware.nix
     ./modules/caddy.nix
-    ./modules/nftables.nix
+    ./modules/socat.nix
   ];
 
   networking.hostName = "bluepill-proxy";
   networking.domain = "vps.ovh.us";
+  networking.useNetworkd = true;
 
   system.autoUpgrade = {
     enable = true;
