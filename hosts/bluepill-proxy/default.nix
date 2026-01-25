@@ -2,6 +2,7 @@
   imports = [
     ./hardware.nix
     ./modules/caddy.nix
+    ./modules/nftables.nix
   ];
 
   networking.hostName = "bluepill-proxy";

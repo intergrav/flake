@@ -6,12 +6,6 @@
 
   services.caddy = {
     enable = true;
-    package = pkgs.caddy.withPlugins {
-      plugins = [
-        "github.com/mholt/caddy-l4@v0.0.0-20251001194302-2e3e6cf60b25"
-      ];
-      hash = "sha256-nIQ3E1gIUqvZA+JMmZmdFy8NMOyuRmA5O+qLi0Ne8s4=";
-    };
     email = "devin@devins.page";
     virtualHosts = {
       "knot.devins.page" = {
