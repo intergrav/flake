@@ -9,22 +9,12 @@
     virtualHosts = {
       "knot.devins.page" = {
         extraConfig = ''
-          reverse_proxy http://100.108.47.83:5555 {
-            header_up Host {http.request.host}
-            header_up X-Real-IP {http.request.remote}
-            header_up X-Forwarded-For {http.request.remote}
-            header_up X-Forwarded-Proto {http.request.scheme}
-          }
+          reverse_proxy http://100.108.47.83:5555
         '';
       };
       "spindle.devins.page" = {
         extraConfig = ''
-          reverse_proxy http://100.108.47.83:6555 {
-            header_up Host {http.request.host}
-            header_up X-Real-IP {http.request.remote}
-            header_up X-Forwarded-For {http.request.remote}
-            header_up X-Forwarded-Proto {http.request.scheme}
-          }
+          reverse_proxy http://100.108.47.83:6555
         '';
       };
     };

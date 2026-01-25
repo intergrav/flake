@@ -3,7 +3,7 @@
     tangled = {
       knot = {
         enable = true;
-        stateDir = "/srv/knot";
+        stateDir = "/var/lib/knot";
         server = {
           hostname = "knot.devins.page";
           owner = "did:plc:3xpaniu6rs7fygzthgmtuv7c";
