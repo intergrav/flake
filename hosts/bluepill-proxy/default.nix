@@ -14,5 +14,6 @@
     flake = "github:intergrav/flake";
     flags = ["-L"];
     dates = "04:40";
+    allowReboot = true;
   };
 }
