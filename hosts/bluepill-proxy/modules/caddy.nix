@@ -6,6 +6,7 @@
 
   services.caddy = {
     enable = true;
+    email = "devin@devins.page";
     virtualHosts = {
       "knot.devins.page" = {
         extraConfig = ''
