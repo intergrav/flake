@@ -9,6 +9,7 @@ in {
     {
       home = homeDir;
       shell = pkgs.fish;
+      openssh.authorizedKeys.keys = [''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILyOJLlmq653uVs/1KdVnaMzi+EolB7EJMJ7AdBxVi6m devin@devins.page''];
     }
     // (
       if isDarwin
