@@ -4,10 +4,6 @@
     allowedUDPPorts = [25565 23343 24454 22232];
   };
 
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_forward" = 1;
-  };
-
   networking.nftables = {
     enable = true;
     ruleset = ''
