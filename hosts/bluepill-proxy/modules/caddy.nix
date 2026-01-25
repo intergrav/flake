@@ -7,6 +7,11 @@
     enable = true;
     email = "devin@devins.page";
     virtualHosts = {
+      "pds.devins.page" = {
+        extraConfig = ''
+          reverse_proxy http://100.108.47.83:3000
+        '';
+      };
       "knot.devins.page" = {
         extraConfig = ''
           reverse_proxy http://100.108.47.83:5555

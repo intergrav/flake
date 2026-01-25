@@ -3,12 +3,12 @@
     ./hardware.nix
     ./modules/beets.nix
     ./modules/blocky.nix
-    ./modules/homepage.nix
     ./modules/immich.nix
     ./modules/jellyfin.nix
     ./modules/mikusmp67.nix
     ./modules/navidrome.nix
     ./modules/newbeginnings7.nix
+    ./modules/pds.nix
     ./modules/restic.nix
     ./modules/samba.nix
     ./modules/slskd.nix
