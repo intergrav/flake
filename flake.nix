@@ -11,6 +11,7 @@
     };
     mac-app-util.url = "github:hraban/mac-app-util";
     agenix.url = "github:ryantm/agenix";
+    tangled.url = "git+https://tangled.org/@tangled.org/core";
   };
 
   outputs = {
@@ -19,6 +20,7 @@
     home-manager,
     mac-app-util,
     agenix,
+    tangled,
     ...
   }: {
     darwinConfigurations = {
@@ -62,6 +64,8 @@
           ./hosts/bluepill
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
+          tangled.nixosModules.knot
+          tangled.nixosModules.spindle
         ];
       };
 

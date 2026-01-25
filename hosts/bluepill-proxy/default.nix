@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hardware.nix
+    ./modules/caddy.nix
   ];
 
   networking.hostName = "bluepill-proxy";

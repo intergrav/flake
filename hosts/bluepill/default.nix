@@ -12,6 +12,7 @@
     ./modules/restic.nix
     ./modules/samba.nix
     ./modules/slskd.nix
+    ./modules/tangled.nix
     ./modules/transmission.nix
   ];
 
