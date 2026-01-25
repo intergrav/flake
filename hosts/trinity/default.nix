@@ -7,11 +7,6 @@
   networking.hostName = "trinity";
   networking.networkmanager.enable = true;
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 

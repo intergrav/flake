@@ -18,11 +18,6 @@
   networking.hostName = "bluepill";
   networking.useNetworkd = true;
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
   system.autoUpgrade = {
     enable = true;
     flake = "github:intergrav/flake";

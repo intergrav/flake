@@ -22,6 +22,9 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   swapDevices = [];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
