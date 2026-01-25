@@ -15,6 +15,4 @@
     flags = ["-L"];
     dates = "04:40";
   };
-
-  age.identityPaths = ["/etc/age.key"];
 }
