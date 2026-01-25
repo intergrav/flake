@@ -48,11 +48,11 @@
     };
 
     nixosConfigurations = {
-      trinity = nixpkgs.lib.nixosSystem {
+      d-latitude = nixpkgs.lib.nixosSystem {
         modules = [
           ./modules/common
           ./modules/nixos
-          ./hosts/trinity
+          ./hosts/d-latitude
           home-manager.nixosModules.home-manager
         ];
       };

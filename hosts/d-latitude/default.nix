@@ -4,7 +4,7 @@
     ./modules/tlp.nix
   ];
 
-  networking.hostName = "trinity";
+  networking.hostName = "d-latitude";
   networking.networkmanager.enable = true;
 
   services.displayManager.gdm.enable = true;
