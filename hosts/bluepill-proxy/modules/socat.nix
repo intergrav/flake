@@ -4,8 +4,6 @@
     allowedUDPPorts = [25565 23343 24454 22232];
   };
 
-  environment.systemPackages = with pkgs; [socat];
-
   systemd.services.minecraft-forward = {
     description = "Minecraft TCP+UDP forward";
     wants = ["network-online.target"];
@@ -25,6 +23,7 @@
       User = "nobody";
       StandardOutput = "journal";
       StandardError = "journal";
+      Path = "${pkgs.socat}/bin:/run/current-system/sw/bin:/usr/bin:/bin";
     };
     wantedBy = ["multi-user.target"];
   };
