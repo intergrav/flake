@@ -8,7 +8,7 @@
     enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = [
-        "github.com/mholt/caddy-l4"
+        "github.com/mholt/caddy-l4@v0.0.0-20251001194302-2e3e6cf60b25"
       ];
     };
     email = "devin@devins.page";
