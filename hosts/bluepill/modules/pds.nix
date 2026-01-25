@@ -7,7 +7,7 @@
 
   services.bluesky-pds = {
     enable = true;
-    environmentFiles = [config.sops.secrets.pds.path];
+    environmentFiles = [config.age.secrets.pds.path];
     settings = {
       PDS_PORT = 3000;
       PDS_HOSTNAME = "pds.devins.page";
