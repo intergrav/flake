@@ -17,6 +17,16 @@
           reverse_proxy http://100.108.47.83:6555
         '';
       };
+      "navidrome.devins.page" = {
+        extraConfig = ''
+          reverse_proxy http://100.108.47.83:4533
+        '';
+      };
+      "jellyfin.devins.page" = {
+        extraConfig = ''
+          reverse_proxy http://100.108.47.83:8096
+        '';
+      };
     };
   };
 }
