@@ -64,6 +64,16 @@
           home-manager.nixosModules.home-manager
         ];
       };
+
+      bluepill-proxy = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./modules/common
+          ./modules/nixos
+          ./hosts/bluepill-proxy
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager
+        ];
+      };
     };
 
     formatter = nixpkgs.lib.genAttrs ["aarch64-darwin" "x86_64-linux"] (system: nixpkgs.legacyPackages.${system}.alejandra);
