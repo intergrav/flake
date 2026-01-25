@@ -1,4 +1,9 @@
 {...}: {
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [80 443];
+  };
+
   services.caddy = {
     enable = true;
     virtualHosts = {
