@@ -22,10 +22,12 @@
     fsType = "ext4";
   };
 
-  fileSystems."/efi" = {
-    device = "systemd-1";
-    fsType = "autofs";
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/EC85-BE4C";
+    fsType = "vfat";
   };
+
+  boot.loader.grub.device = "/dev/sda";
 
   swapDevices = [];
 
