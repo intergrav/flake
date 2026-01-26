@@ -99,7 +99,7 @@
     serviceConfig = {
       ExecStart = "${pkgs.socat}/bin/socat TCP-LISTEN:22,reuseaddr,fork TCP:100.108.47.83:22";
       Restart = "always";
-      User = "nobody";
+      User = "root";
       StandardOutput = "journal";
       StandardError = "journal";
     };
