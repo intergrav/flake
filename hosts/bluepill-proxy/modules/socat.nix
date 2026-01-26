@@ -91,7 +91,7 @@
     wantedBy = ["multi-user.target"];
   };
 
-  services.openssh.port = 2222;
+  services.openssh.ports = [2222];
   systemd.services.ssh-tcp-22 = {
     description = "SSH TCP 22 forward";
     wants = ["network-online.target"];
