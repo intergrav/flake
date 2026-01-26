@@ -19,6 +19,12 @@
   networking.hostName = "bluepill";
   networking.useNetworkd = true;
 
+  services.openssh.extraConfig = ''
+    AllowUsers git
+    Match Address 192.168.4.0/22,100.64.0.0/10
+      AllowUsers *
+  '';
+
   system.autoUpgrade = {
     enable = true;
     flake = "github:intergrav/flake";
