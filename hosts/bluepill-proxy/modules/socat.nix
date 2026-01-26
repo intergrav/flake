@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [25565 23343];
+    allowedTCPPorts = [22 25565 23343];
     allowedUDPPorts = [25565 23343 24454 22232];
   };
 
@@ -83,6 +83,20 @@
     after = ["network-online.target"];
     serviceConfig = {
       ExecStart = "${pkgs.socat}/bin/socat UDP-LISTEN:22232,reuseaddr,fork UDP:100.108.47.83:22232";
+      Restart = "always";
+      User = "nobody";
+      StandardOutput = "journal";
+      StandardError = "journal";
+    };
+    wantedBy = ["multi-user.target"];
+  };
+
+  systemd.services.ssh-tcp-22 = {
+    description = "SSH TCP 22 forward";
+    wants = ["network-online.target"];
+    after = ["network-online.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.socat}/bin/socat TCP-LISTEN:22,reuseaddr,fork TCP:100.108.47.83:22";
       Restart = "always";
       User = "nobody";
       StandardOutput = "journal";
