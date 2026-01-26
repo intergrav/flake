@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [22 25565 23343];
+    allowedTCPPorts = [22 2222 25565 23343];
     allowedUDPPorts = [25565 23343 24454 22232];
   };
 
@@ -91,6 +91,7 @@
     wantedBy = ["multi-user.target"];
   };
 
+  services.openssh.port = 2222;
   systemd.services.ssh-tcp-22 = {
     description = "SSH TCP 22 forward";
     wants = ["network-online.target"];
